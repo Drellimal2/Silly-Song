@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var songTextView: UITextView!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var lyricsView: UITextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        nameTextField.delegate = self
+        nameField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,13 +26,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func reset(_ sender: Any) {
-        nameTextField.text = ""
-        songTextView.text = ""
+        nameField.text = ""
+        lyricsView.text = ""
     }
 
     @IBAction func displayLyrics(_ sender: Any) {
-        if !(nameTextField.text?.isEmpty)!{
-            songTextView.text = customizeTemplate(name: nameTextField.text!, template: bananaFanaTemplate)
+        if !(nameField.text?.isEmpty)!{
+            lyricsView.text = lyricsForName(name: nameField.text!, template: bananaFanaTemplate)
         }
     }
 }
